@@ -4,7 +4,6 @@
   <title>Exposed</title>
   <style>
     body {
-      font-family: Arial;
       margin: 0;
       padding: 0;
       overflow: hidden;
@@ -70,7 +69,12 @@
     </video>
   </div>
   <script>
-    document.getElementById('video').play();
+    const video = document.getElementById('video');
+    if (!video.paused) {
+      video.play();
+    } else {
+      video.play();
+    }
   </script>
 </body>
 </html>
