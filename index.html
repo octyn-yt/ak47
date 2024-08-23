@@ -4,6 +4,7 @@
   <title>Exposed</title>
   <style>
     body {
+      font-family: Arial;
       margin: 0;
       padding: 0;
       overflow: hidden;
@@ -35,8 +36,18 @@
       font-weight: bold;
       text-align: center;
       padding: 5px;
-      animation: scroll 10s linear infinite;
       z-index: 1;
+    }
+    #scrolling-text span {
+      position: absolute;
+      white-space: nowrap;
+      animation: scroll 10s linear infinite;
+    }
+    #scrolling-text span:nth-child(1) {
+      left: 0;
+    }
+    #scrolling-text span:nth-child(2) {
+      left: 100%;
     }
     @keyframes scroll {
       0% {
@@ -49,9 +60,12 @@
   </style>
 </head>
 <body>
-  <div id="scrolling-text">Exposed</div>
+  <div id="scrolling-text">
+    <span>Exposed</span>
+    <span>Exposed</span>
+  </div>
   <div id="video-container">
-    <video id="video" loop muted>
+    <video id="video" loop>
       <source src="expose.mp4" type="video/mp4">
     </video>
   </div>
