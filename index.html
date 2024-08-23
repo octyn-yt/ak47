@@ -1,82 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Exposed</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-    }
-    #video-container {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    #video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    #scrolling-text {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 20px;
-      background-color: #000;
-      color: #fff;
-      font-size: 16px;
-      font-weight: bold;
-      text-align: center;
-      padding: 5px;
-      z-index: 1;
-    }
-    #scrolling-text span {
-      position: absolute;
-      white-space: nowrap;
-      animation: scroll 5s linear infinite;
-    }
-    #scrolling-text span:nth-child(1) {
-      left: 0;
-      animation-delay: 0s;
-    }
-    #scrolling-text span:nth-child(2) {
-      left: 100%;
-      animation-delay: 2.5s;
-    }
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(-100%);
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exposed</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            background-color: black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        h1 {
+            position: absolute;
+            top: 20px;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+        button {
+            position: absolute;
+            bottom: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-  <div id="scrolling-text">
-    <span>Exposed</span>
-    <span>Exposed</span>
-  </div>
-  <div id="video-container">
-    <video id="video" loop>
-      <source src="expose.mp4" type="video/mp4">
+    <h1>Exposed</h1>
+    <video id="myVideo" loop>
+        <source src="expose.mp4" type="video/mp4">
+        Your browser sucks, no video tag?
     </video>
-  </div>
-  <script>
-    const video = document.getElementById('video');
-    if (!video.paused) {
-      video.play();
-    } else {
-      video.play();
-    }
-  </script>
+    <button id="playButton">Start</button>
+
+    <script>
+        // Get the button and video elements
+        const playButton = document.getElementById('playButton');
+        const video = document.getElementById('myVideo');
+
+        // Add click event to the button
+        playButton.addEventListener('click', () => {
+            video.style.display = 'block';
+            video.requestFullscreen(); // Request full screen mode
+            video.play();
+            playButton.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
