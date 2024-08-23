@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exposed</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    #scrolling-text {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-color: #000;
+      color: #fff;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      padding: 5px;
+      animation: scroll 10s linear infinite;
+    }
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="scrolling-text">Exposed</div>
+  <div id="video-container">
+    <video id="video" autoplay loop>
+      <source src="expose.mp4" type="video/mp4">
+    </video>
+  </div>
+</body>
+</html>
