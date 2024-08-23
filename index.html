@@ -40,13 +40,15 @@
     #scrolling-text span {
       position: absolute;
       white-space: nowrap;
-      animation: scroll 10s linear infinite;
+      animation: scroll 5s linear infinite;
     }
     #scrolling-text span:nth-child(1) {
       left: 0;
+      animation-delay: 0s;
     }
     #scrolling-text span:nth-child(2) {
       left: 100%;
+      animation-delay: 2.5s;
     }
     @keyframes scroll {
       0% {
